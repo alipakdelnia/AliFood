@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/shape_delete_item"
+    android:padding="5dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<TextView
+android:fontFamily="@font/product_sans_bold"
+    android:textColor="?attr/colorOnPrimary"
+    android:textSize="20sp"
+    android:gravity="center_horizontal"
+    android:text="Are you sure to delete this item?"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginEnd="50dp"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/bt_remove_dialog_no"
+            android:text="No"
+            android:textColor="?attr/colorOnSecondary"
+            app:icon="@drawable/outline_cancel_24"
+            app:iconTint="?attr/colorOnSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_remove_dialog_yes"
+            android:text="Yes"
+            android:layout_gravity="center_horizontal"
+            android:textColor="?attr/colorOnSecondary"
+            app:icon="@drawable/baseline_done_all_24"
+            app:iconTint="?attr/colorOnSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
