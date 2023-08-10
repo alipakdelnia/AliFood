@@ -10,8 +10,9 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.alifood.room.Food
 
-class FoodAdapter(private val data : ArrayList<Food> , private val foodEvents: FoodEvents) :
+class FoodAdapter(private val data : ArrayList<Food>, private val foodEvents: FoodEvents) :
     RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
     inner class FoodViewHolder(itemView: View , private val context : Context) :
@@ -72,19 +73,19 @@ class FoodAdapter(private val data : ArrayList<Food> , private val foodEvents: F
         return data.size
     }
 
-    fun addFood (newFood:Food){
+    fun addFood (newFood: Food){
         //add new food to list:
         data.add(0,newFood)
         notifyItemInserted(0)
     }
 
-    fun removeFood(oldFood: Food , oldPosition: Int){
+    fun removeFood(oldFood: Food, oldPosition: Int){
         //remove item from list by long click
         data.remove(oldFood)
         notifyItemRemoved(oldPosition)
     }
 
-    fun updateFood(newFood: Food,position: Int){
+    fun updateFood(newFood: Food, position: Int){
         //update item from list :
         data.set(position,newFood)
         notifyItemChanged(position)
@@ -102,8 +103,8 @@ class FoodAdapter(private val data : ArrayList<Food> , private val foodEvents: F
         //3.fill (call) object of interface with your data
         //4. implementation in MainActivity
 
-        fun onFoodClicked(food: Food,position: Int)
-        fun onFoodLongClicked(food: Food,position: Int)
+        fun onFoodClicked(food: Food, position: Int)
+        fun onFoodLongClicked(food: Food, position: Int)
 
     }
 

@@ -11,6 +11,7 @@ import com.example.alifood.databinding.ActivityMainBinding
 import com.example.alifood.databinding.DialogAddNewItemBinding
 import com.example.alifood.databinding.DialogDeleteItemBinding
 import com.example.alifood.databinding.DialogUpdateItemBinding
+import com.example.alifood.room.Food
 
 
 class MainActivity : AppCompatActivity(), FoodAdapter.FoodEvents {
@@ -223,7 +224,7 @@ class MainActivity : AppCompatActivity(), FoodAdapter.FoodEvents {
 
     }
 
-    override fun onFoodLongClicked(food: Food , position: Int) {
+    override fun onFoodLongClicked(food: Food, position: Int) {
 
         val dialog = AlertDialog.Builder(this).create()
 
