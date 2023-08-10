@@ -97,7 +97,7 @@ class FoodAdapter(private val data : ArrayList<Food>, private val foodEvents: Fo
         notifyDataSetChanged()
     }
 
-    interface FoodEvents{
+    interface FoodEvents {
         //1.create interface in adapter
         //2.get an object of interface in args of adapter
         //3.fill (call) object of interface with your data
@@ -106,7 +106,6 @@ class FoodAdapter(private val data : ArrayList<Food>, private val foodEvents: Fo
         fun onFoodClicked(food: Food, position: Int)
         fun onFoodLongClicked(food: Food, position: Int)
 
+
     }
-
-
 }

@@ -12,19 +12,19 @@ abstract class MyDatabase : RoomDatabase() {
 
     companion object {
 
-        private val database : MyDatabase? = null
-        fun getDatabase (context:Context) : MyDatabase{
+        private var database: MyDatabase? = null
+        fun getDatabase(context: Context): MyDatabase {
 
-            var instance = database
-            if (instance == null){
-                instance = Room.databaseBuilder(
+            if (database == null) {
+                database = Room.databaseBuilder(
                     context.applicationContext,
                     MyDatabase::class.java,
                     "myDatabase.db"
-                ).build()
+                ).allowMainThreadQueries()
+                    .build()
 
             }
-            return instance
+            return database!!
         }
 
     }
