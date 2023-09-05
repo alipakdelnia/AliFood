@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), FoodAdapter.FoodEvents {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //by
 
         foodDao = MyDatabase.getDatabase(this).foodDao
 
@@ -42,77 +43,77 @@ class MainActivity : AppCompatActivity(), FoodAdapter.FoodEvents {
         showAllData()
 
 
-//        binding.btAddNewFood.setOnClickListener {
-//
-//            val dialog = AlertDialog.Builder(this).create()
-//            val dialogBinding = DialogAddNewItemBinding.inflate(layoutInflater)
-//            dialog.setView(dialogBinding.root)
-//            dialog.setCancelable(true)
-//            dialog.show()
-//
-//            dialogBinding.btDialogDone.setOnClickListener {
-//
-//                if (
-//                    dialogBinding.etDialogFoodName.length() > 0 &&
-//                    dialogBinding.etDialogPrice.length() > 0 &&
-//                    dialogBinding.etDialogFoodCity.length() > 0 &&
-//                    dialogBinding.etDialogDistance.length() > 0
-//                ) {
-//
-//                    val txtName = dialogBinding.etDialogFoodName.text.toString()
-//                    val txtPrice = dialogBinding.etDialogPrice.text.toString()
-//                    val txtDistance = dialogBinding.etDialogDistance.text.toString()
-//                    val txtCity = dialogBinding.etDialogFoodCity.text.toString()
-//                    val ratingBarStar: Float = (1..5).random().toFloat()
-//                    val txtRatingNum: Int = (1..150).random()
-//                    val randomForUrl = (0 until 12).random()
-//                    val urlPic = foodList[randomForUrl].urlImage
-//                    val newFood = Food(
-//                        txtName,
-//                        txtPrice,
-//                        txtDistance,
-//                        txtCity,
-//                        urlPic,
-//                        txtRatingNum,
-//                        ratingBarStar
-//                    )
-//                    myAdapter.addFood(newFood)
-//                    binding.recyclerMain.scrollToPosition(0)
-//                    dialog.dismiss()
-//
-//                } else {
-//                    Toast.makeText(this, "Please enter all of items ...", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//            dialogBinding.btDialogCancel.setOnClickListener {
-//                dialog.dismiss()
-//            }
-//
-//
-//        }
-//
-//        binding.btSearch.addTextChangedListener {editTextInput ->
-//
-//            if (editTextInput!!.isNotEmpty()){
-//                //filter data
-//                val cloneList = foodList.clone() as ArrayList<Food>
-//                val filteredList = cloneList.filter { foodItem ->
-//                    foodItem.txtTitle.contains(editTextInput)
-//                }
-//                myAdapter.setData(ArrayList(filteredList))
-//
-//            }else{
-//                //show all data :
-//                myAdapter.setData(foodList.clone() as ArrayList<Food>)
-//            }
-//
-//
-//
-//
-//        }
-//
-//
-//
+        binding.btAddNewFood.setOnClickListener {
+
+            val dialog = AlertDialog.Builder(this).create()
+            val dialogBinding = DialogAddNewItemBinding.inflate(layoutInflater)
+            dialog.setView(dialogBinding.root)
+            dialog.setCancelable(true)
+            dialog.show()
+
+            dialogBinding.btDialogDone.setOnClickListener {
+
+                if (
+                    dialogBinding.etDialogFoodName.length() > 0 &&
+                    dialogBinding.etDialogPrice.length() > 0 &&
+                    dialogBinding.etDialogFoodCity.length() > 0 &&
+                    dialogBinding.etDialogDistance.length() > 0
+                ) {
+
+                    val txtName = dialogBinding.etDialogFoodName.text.toString()
+                    val txtPrice = dialogBinding.etDialogPrice.text.toString()
+                    val txtDistance = dialogBinding.etDialogDistance.text.toString()
+                    val txtCity = dialogBinding.etDialogFoodCity.text.toString()
+                    val ratingBarStar: Float = (1..5).random().toFloat()
+                    val txtRatingNum: Int = (1..150).random()
+                    val randomForUrl = (0 until 12).random()
+                    val urlPic = foodList[randomForUrl].urlImage
+                    val newFood = Food(
+                        txtTitle =   txtName,
+                        txtPrice =   txtPrice,
+                        txtDistance =txtDistance,
+                        txtLocation =txtCity,
+                        urlImage =   urlPic,
+                        numOfRating =txtRatingNum,
+                        rating =     ratingBarStar
+                    )
+                    myAdapter.addFood(newFood)
+                    binding.recyclerMain.scrollToPosition(0)
+                    dialog.dismiss()
+
+                } else {
+                    Toast.makeText(this, "Please enter all of items ...", Toast.LENGTH_SHORT).show()
+                }
+            }
+            dialogBinding.btDialogCancel.setOnClickListener {
+                dialog.dismiss()
+            }
+
+
+        }
+
+        binding.btSearch.addTextChangedListener {editTextInput ->
+
+            if (editTextInput!!.isNotEmpty()){
+                //filter data
+                val cloneList = foodList.clone() as ArrayList<Food>
+                val filteredList = cloneList.filter { foodItem ->
+                    foodItem.txtTitle.contains(editTextInput)
+                }
+                myAdapter.setData(ArrayList(filteredList))
+
+            }else{
+                //show all data :
+                myAdapter.setData(foodList.clone() as ArrayList<Food>)
+            }
+
+
+
+
+        }
+
+
+
     }
 
     private fun firstRun() {
@@ -246,9 +247,9 @@ class MainActivity : AppCompatActivity(), FoodAdapter.FoodEvents {
     }
 
     override fun onFoodClicked(food: Food, position: Int) {
-//
-//    }
-//
+
+    }
+
 //    override fun onFoodLongClicked(food: Food, position: Int) {
 //
 //        val dialog = AlertDialog.Builder(this).create()
@@ -280,13 +281,13 @@ class MainActivity : AppCompatActivity(), FoodAdapter.FoodEvents {
 //                val txtCity = updateDialogBinding.etUpdateDialogFoodCity.text.toString()
 //
 //                val newFood = Food(
-//                    txtName,
-//                    txtPrice,
-//                    txtDistance,
-//                    txtCity,
-//                    food.urlImage,
-//                    food.numOfRating,
-//                    food.rating)
+//                   txtTitle =   txtName,
+//                   txtPrice =   txtPrice,
+//                   txtDistance =txtDistance,
+//                   txtLocation =txtCity,
+//                   urlImage =   food.urlImage,
+//                   numOfRating =food.numOfRating,
+//                   rating =     food.rating)
 //
 //                myAdapter.updateFood(newFood, position   )
 //                dialog.dismiss()
@@ -320,25 +321,25 @@ class MainActivity : AppCompatActivity(), FoodAdapter.FoodEvents {
 //        }
 //
 //
-    }
+//    }
 
     override fun onFoodLongClicked(food: Food, position: Int) {
-//
-//        val dialog = AlertDialog.Builder(this).create()
-//        val dialogDeleteItemBinding = DialogDeleteItemBinding.inflate(layoutInflater)
-//        dialog.setView(dialogDeleteItemBinding.root)
-//        dialog.setCancelable(true)
-//        dialog.show()
-//
-//        dialogDeleteItemBinding.btRemoveDialogYes.setOnClickListener {
-//
-//            myAdapter.removeFood(food,position)
-//            dialog.dismiss()
-//        }
-//        dialogDeleteItemBinding.btRemoveDialogNo.setOnClickListener {
-//            dialog.dismiss()
-//        }
-//
+
+        val dialog = AlertDialog.Builder(this).create()
+        val dialogDeleteItemBinding = DialogDeleteItemBinding.inflate(layoutInflater)
+        dialog.setView(dialogDeleteItemBinding.root)
+        dialog.setCancelable(true)
+        dialog.show()
+
+        dialogDeleteItemBinding.btRemoveDialogYes.setOnClickListener {
+
+            myAdapter.removeFood(food,position)
+            dialog.dismiss()
+        }
+        dialogDeleteItemBinding.btRemoveDialogNo.setOnClickListener {
+            dialog.dismiss()
+        }
+
     }
 
 
